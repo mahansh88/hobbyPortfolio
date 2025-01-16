@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en"  class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/output.css">
+    
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.1; /* Improved readability */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+             
+        }
+
+
+        /* Testimonials */
+        .testimonial-item {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .testimonial-item:hover {
+            transform: scale(1.02); /* Slight scale on hover */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+ 
+
+        /* Add this to your styles.css or a similar CSS file */
+        .glow {
+            text-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.7),
+                0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+
+        /* .skills {
+                /* display: inline-block; */
+                /* animation: move 16s linear infinite; Animation */
+                
+            /* } */ 
+
+
+            
+            @keyframes move {
+                0% {
+                    transform: translateX(100%); /* Start from right */
+                }
+                50% {
+                    transform: translateX(0); /* Move to center */
+                }
+                100% {
+                    transform: translateX(-100%); /* Move to left */
+                }
+            }
+
+
+        /* .skills2{
+            animation: move2 16s linear infinite;
+        } */
+        @keyframes move2{
+            0%{transform: translateX(-100%);}
+            50%{transform: translateX(0);}
+            100%{transform: translateX(100%);}
+
+
+        }
+
+            /* Testimonial slider */
+
+            .testimonial-slider {
+                position: relative;
+                /* width: 60%; Adjust as needed */
+                margin: 0 auto;
+            }
+
+            .testimonial-wrapper {
+                display: flex;
+                width: 100%; /* Adjust based on the number of testimonials */
+                /* justify-content: center; */
+            }
+
+            
+            .testimonial-item {
+                width: 100%; /* Each testimonial takes full width */
+                min-width: 100%; /* Ensure full width for each item */
+                box-sizing: border-box;
+            }
+
+            .testimonial-item p {
+                font-style: italic;
+            }
+            .testimonial-item2 {
+                width: 100%; /* Each testimonial takes full width */
+                min-width: 100%; /* Ensure full width for each item */
+                box-sizing: border-box;
+            }
+
+            .testimonial-item2 p {
+                font-style: italic;
+            }
+            .testimonial-item3 {
+                width: 100%; /* Each testimonial takes full width */
+                min-width: 100%; /* Ensure full width for each item */
+                box-sizing: border-box;
+            }
+
+            .testimonial-item3 p {
+                font-style: italic;
+            }
+
+            #prev, #next {
+                cursor: pointer;
+            }
+            .dot {
+                transition: background-color 0.3s ease;
+            }
+
+            .dot.active {
+                background-color: #38b2ac; /* Change to your preferred active color */
+            }
+
+            .dot:not(.active):hover {
+                background-color: #a0aec0; /* Change to your preferred hover color */
+            }
+
+        .underTitle {
+            animation: widthChange 12s ease-in-out forwards infinite; /* Apply animation */
+        }
+
+        @keyframes widthChange {
+            0% {
+                width: 80%; /* Starting width */
+            }
+
+            50%{
+                width: 30%;
+            }
+
+
+            100% {
+                width: 80%; /* Ending width */
+            }
+        }
+
+        .scroll-watcher {
+            height: 3px;
+            position: fixed;
+            top: 3px; 
+            z-index: 10000;
+            width: 100%;
+            transform: scale(0, 1); /* Corrected scale syntax */
+            transform-origin: left;
+            transition: transform 0.3s linear; 
+        }
+        .preLoad{
+            z-index: 10001;
+        }
+
+        /* Rotating hr Elements */
+        .rotatingHr {
+            animation: rotateOne 8s linear infinite; /* Continuous rotation with easing */
+        }
+
+        @keyframes rotateOne {
+            0% {
+                transform: rotate(0deg) scale(1); /* Start at 0 degrees */
+            }
+            25% {
+                transform: rotate(360deg) scale(1.1); /* Rotate to 360 degrees and scale up */
+            }
+            50% {
+                transform: rotate(720deg) scale(1); /* Rotate to 720 degrees and scale back */
+            }
+            75% {
+                transform: rotate(1080deg) scale(1.1); /* Rotate to 1080 degrees and scale up again */
+            }
+            100% {
+                transform: rotate(1440deg) scale(1); /* Rotate to 1440 degrees and return to original scale */
+            }
+        }
+
+        .rotatingHrTwo{
+
+            animation: rotateTwo 8s linear infinite;
+
+        }
+        @keyframes rotateTwo{
+            0% {
+                transform: rotate(0deg) scale(1); /* Start at 0 degrees */
+            }
+            25% {
+                transform: rotate(-360deg) scale(1.1); /* Rotate to 360 degrees and scale up */
+            }
+            50% {
+                transform: rotate(-720deg) scale(1); /* Rotate to 720 degrees and scale back */
+            }
+            75% {
+                transform: rotate(-1080deg) scale(1.1); /* Rotate to 1080 degrees and scale up again */
+            }
+            100% {
+                transform: rotate(-1440deg) scale(1); /* Rotate to 1440 degrees and return to original scale */
+            }
+        }
+
+
+        /* Hamburger Menu */
+        .burger[aria-expanded="true"] .Top {
+            margin: 0;
+            height: 4px;
+            transform: translateY(calc(4px + 8px)) rotate(45deg);
+        }
+
+        .burger[aria-expanded="true"] .Middle {
+            margin: 0;
+            height: 4px;
+            transform: rotate(45deg); /* Hide the middle bar */
+        }
+
+        .burger[aria-expanded="true"] .Bottom {
+            margin: 0;
+            height: 4px;
+            transform: translateY(calc(-4px + -8px)) rotate(-45deg);
+        }
+
+        .Menu {
+            display: none; /* Hide by default */
+            opacity: 0; /* Start invisible */
+            transition: opacity 0.3s ease; /* Transition for opacity */
+        }
+
+        .Menu.show {
+            display: flex; /* Show the menu */
+            opacity: 1; /* Make it visible */
+        }
+
+        .contactHr {
+            animation-name: cHr;
+            animation-duration: 12s;
+            animation-timing-function: ease-in-out; /* Smoother transition */
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes cHr {
+            0% {
+                transform: scaleY(1);
+                left: 24px;
+                opacity: 1;
+            }
+            25% {
+                transform:scaleY(1);
+                left: 39%;
+                opacity: 1;
+                width:25%;
+            }
+            50% {
+                transform: scaleY(1.2); /* Slightly scale up for effect */
+                left: 66%;
+                opacity: 1;
+                width:400px;
+            }
+            75% {
+                transform: scaleY(1);
+                left: 40%;
+                opacity: 1;
+            }
+           
+            100% {
+                transform: scaleY(1);
+                left: 24px;
+                opacity: 1; /* Fade back in */
+                width: 10%;
+            }
+        }
+        .contactHr2 {
+            animation-name: cHr2;
+            animation-duration: 12s;
+            animation-timing-function: ease-in-out; /* Smoother transition */
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes cHr2 {
+            0% {
+                transform: scaleY(1);
+                right: 24px;
+                opacity: 1;
+            }
+            25% {
+                transform:scaleY(1);
+                right: 39%;
+                opacity: 1;
+                width:25%;
+            }
+            50% {
+                transform: scaleY(1.2); /* Slightly scale up for effect */
+                right: 66%;
+                opacity: 1;
+                width:400px;
+            }
+            75% {
+                transform: scaleY(1);
+                right: 40%;
+                opacity: 1;
+            }
+           
+            100% {
+                transform: scaleY(1);
+                right: 24px;
+                opacity: 1; /* Fade back in */
+                width: 10%;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body class=" m-0 p-0  transition-all duration-300 bg-Primary_color flex  overflow-x-hidden 
+flex-col items-center  ">
+   
+<!-- overflow-y-hidden => Warning for body -->
+    <div  class="preLoad fixed   w-full h-full bg-black flex flex-col space-y-9 justify-center items-center text-whiteGlowing glow
+    pb-20 font-serif md:text-xl">
+        <img id="gifPreLoad" src="images/preLoad/MPyj.gif"
+         class=" w-1/2 sm:w-[41%] md:w-[38%] lg:w-1/4" alt="">
+        <h1 id="preH1">
+            Pre_Loading...
+
+        </h1>
+    </div>
+
+
+    <div class="scroll-watcher bg-yellow-600"></div>
+
+
+    <a href="#bg_image" id="backToTop" type="button" class="fixed hidden z-20 w-12  lg:w-16 
+      bottom-4   left-1 md:left-0 lg:left-3  xl:left-5">
+        <img src="images/backToTopPng/vecteezy_hand-drawn-arrow-symbol-colorful_30347243.png"
+        class="scale-90 hover:scale-95 transition-all duration-300  hover:bg-teal-950
+        hover:shadow-2xl hover:shadow-teal-500  p-2 rounded-xl" alt="">
+    </a>
+
+
+    <header class="fixed flex bg-transparent backdrop-blur-xl flex-col  top-2  
+    z-10 w-[97%] sm:w-[87%] mx-auto border-l-2 border-b-2 md:border-b-4 rounded-3xl border-teal-600 px-3 py-7 md:py-4">
+
+        <!-- Tablet and mobile mode -->
+        <div class="flex flex-col  w-full items-center  absolute top-2 lg:right-3 transform translate-y-0 "> 
+            <div id="Intro" class="text-lg sm:text-xl md:text-lg lg:text-xl xl:text-2xl
+             text-whiteGlowing glow  mx-auto  text-white  transition-opacity duration-500" ></div>
+            <div  class="text-lg md:text-base lg:text-xl font-serif font-semibold  mx-auto  text-white 
+             opacity-0 transition-opacity duration-500" id="text"></div>
+        </div>
+         
+        <!-- row 1 -->
+        <div class=" w-full flex flex-row justify-between px-4 md:px-7 lg:px-14 ">
+            
+            <h1 class="text-whiteGlowing glow font-serif text-2xl md:text-lg lg:text-xl xl:text-2xl
+             transform translate-y-3 md:translate-y-0">
+             James Cornell
+            </h1>
+            
+            <!-- hamburger Menu -->
+            <div class="md:hidden  transform translate-y-4 w-20  flex justify-end">
+                <button type="button" class="burger flex flex-col w-8 border-0 p-0 gap-2 bg-none cursor-pointer items-end" aria-expanded="false">
+                    <div class="Top bg-emerald-600 h-1 w-full rounded transition-all duration-300 ease-in-out"></div>
+                    <div class="Middle bg-emerald-600 h-1 w-full rounded transition-all duration-300 ease-in-out -mt-[1px]"></div>
+                    <div class="Bottom bg-emerald-600 h-1 w-full rounded transition-all duration-300 ease-in-out -mt-[1px]"></div>
+                </button>
+            </div>
+
+            <!-- Nav Menu -->
+            <div class="Menu w-[100%]  transform -translate-x-[4%] sm:-translate-x-[9%] fixed   mt-20 flex-row justify-start ">
+                <nav class=" w-full -mt-3 absolute  flex flex-col items-start">
+                    <ul class="flex-col items-center w-[190px] px-3 sm:w-[198px]   py-4 text-lime-950 space-y-4 sm:text-lg
+                     bg-teal-950 backdrop-blur-3xl rounded-2xl  absolute z-40
+                      border-b-2 rounded-b-3xl border-r-2 rounded-r-3xl border-r-teal-600 border-b-teal-600">
+                        <!-- Png And Social Media -->
+                      <div class="flex flex-col items-center space-y-3">
+                        <!-- Png -->
+                        <div class="w-[78%] backdrop-blur-3xl  bg-opacity-65 border-2 bg-teal-950 border-teal-700 rounded-full p-2 flex justify-center">
+                            <img src="images/hamburgerMenu/vecteezy_laptop-computer-grey-color_47130038.png"
+                            class="" alt="">
+                        </div>
+                        <!-- Social Media --> 
+                         <div class="w-full rounded-2xl  
+                          px-1 pb-1 border-b-2 border-teal-600 flex justify-between gap-x-2">
+                            <a href="#" class="w-[34%] 
+                             outline rounded-full p-[2px] outline-teal-700  outline-2 bg-teal-950 bg-opacity-55
+                            hover:bg-opacity-10 transition-colors duration-500">
+                                <img src="images/Header_Icons/vecteezy_facebook-logo-png-facebook-icon-transparent-png_18930698.png"
+                                class="" alt="">
+                            </a>
+                            <a href="#" class="w-[31%] h-[96%] mt-[1px] outline rounded-full p-[4px] outline-teal-700  outline-2 bg-teal-950 bg-opacity-55
+                            hover:bg-opacity-10 transition-colors duration-500">
+                                <img src="images/Header_Icons/vecteezy_instagram-logo-on-square-style-with-transparent-background_42127166.png"
+                                class="" alt="">
+                            </a>
+                            <a href="#" class="w-[34%] outline rounded-full p-[2px] outline-teal-700  outline-2 bg-teal-950 bg-opacity-55
+                            hover:bg-opacity-10 transition-colors duration-500">
+                                <img src="images/Header_Icons/vecteezy_linkedin-3d-illustration_13212104.png"
+                                class="" alt="">
+                            </a>
+                            <a href="#" class="w-[34%] outline rounded-full p-[2px] outline-teal-700  outline-2 bg-teal-950 bg-opacity-55
+                            hover:bg-opacity-10 transition-colors duration-500">
+                                <img src="images/Header_Icons/vecteezy_twitter-logo-png-twitter-icon-transparent-free-png_18930745.png"
+                                class="" alt="">
+                            </a>
+                         </div>
+                      </div>
+                      <!-- Access Links -->
+                      <div class="flex flex-col w-full items-center text-white space-y-2 ">
+                        <!-- Home -->
+                         <a href="#home" class="w-full   
+                         group rounded-2xl transition-all duration-500 backdrop-brightness-75 hover:bg-teal-950
+                          items-center py-2 px-4 flex justify-between gap-x-4 shadow-inner shadow-white">
+                            <img src="images/hamburgerMenu/vecteezy_3d-home-icon_22750436.png"
+                             class="w-6 group-hover:scale-110 transition-transform duration-500" alt="">
+                             <h1 class="text-base font-serif font-semibold pr-6">Home</h1>
+                         </a>
+                         <hr class="h-1 w-[88%]">
+                         <!-- About Me -->
+                         <a href="#aboutMe" class="w-full group rounded-2xl backdrop-brightness-75 hover:bg-teal-950
+                          transition-all duration-500 
+                          items-center py-2 px-3 flex justify-between  shadow-inner shadow-white">
+                            <img src="images/hamburgerMenu/vecteezy_3d-icon-illustration-with-an-education-theme-suitable-for_25299113.png"
+                             class="w-8 group-hover:scale-110 transition-transform duration-500 pr-1" alt="">
+                             <h1 class="text-base font-serif font-semibold  pr-3">About Me</h1>
+                         </a>
+                         <hr class="h-1 w-[88%]">
+                         <!-- Projets -->
+                         <a href="#projects" class="w-full group rounded-2xl transition-all duration-500 backdrop-brightness-75 hover:bg-teal-950
+                          items-center py-2 px-4 flex justify-between gap-x-1 shadow-inner shadow-white">
+                            <img src="images/hamburgerMenu/vecteezy_sheet-of-paper-on-white_34380681.png"
+                             class="w-6   group-hover:scale-110 transition-transform duration-500" alt="">
+                             <h1 class="text-base font-serif font-semibold pr-4">Projects</h1>
+                         </a>
+                         <hr class="h-1 w-[88%]">
+                         <!-- Testimonials -->
+                         <a href="#testimonials" class="w-full group rounded-2xl transition-all duration-500 backdrop-brightness-75 hover:bg-teal-950
+                          items-center py-2 px-3 flex justify-between gap-x-1 shadow-inner shadow-white">
+                            <img src="images/hamburgerMenu/vecteezy_comment-icon-outline_53208639.png"
+                             class="w-8 group-hover:scale-110 transition-transform duration-500" alt="">
+                             <h1 class="text-base font-serif font-semibold ">Testimonials</h1>
+                         </a>
+                         <hr class="h-1 w-[88%]">
+                         <!-- Contact Me -->
+                         <a href="#contactMe" class="w-full group rounded-2xl transition-all duration-500 backdrop-brightness-75 hover:bg-teal-950
+                          items-center py-2 px-3 flex justify-between gap-x-1 shadow-inner shadow-white">
+                            <img src="images/hamburgerMenu/vecteezy_sleek-mobile-phone-design-for-modern-websites_54055167.png"
+                              class = "w-8 group-hover:scale-110 transition-transform duration-500" alt="">
+                             <h1 class="text-base font-serif font-semibold ">Contect Me</h1>
+                         </a>
+                         <hr class="h-1 w-[88%]">
+
+                      </div>
+                      <!-- last png -->
+                       <div class="w-[80%] pt-1 rounded-lg px-2 
+                        backdrop-blur-3xl backdrop-brightness-200 flex justify-center transform -translate-y-3">
+                            <img src="images/hamburgerMenu/vecteezy_silhouette-of-a-man-with-a-laptop-connected-to-a-brain_49340794.png"
+                            class="w-full" alt="">
+                       </div>
+
+                    </ul>
+                </nav>
+            </div>
+
+
+
+
+
+            <div class=" md:w-[26%] lg:w-[21%] xl::w-[19%] hidden md:flex flex-row justify-between border-r-2 border-b-2 py-1 border-teal-500 px-4 pb-2 rounded-xl">
+                <a href="#" class="w-[20%] mt-1 h-[85%] transition-all duration-500 hover:scale-105 outline-teal-700 hover:outline-teal-600
+                hover:bg-teal-900 hover:bg-opacity-70 outline outline-2 p bg-teal-800 rounded-2xl">
+                    <img src="images/Header_Icons/vecteezy_facebook-logo-png-facebook-icon-transparent-png_18930698.png" 
+                    class="-mt-[2px]" alt="">
+                </a>
+
+                <a class="w-[19%] h-5/6 mt-1 transition-all duration-500 hover:scale-105 outline-teal-700 hover:outline-teal-600
+                 hover:bg-teal-900 hover:bg-opacity-70 outline outline-2 px-1 py-1 bg-teal-800 rounded-2xl" href="#">
+                    <img src="images/Header_Icons/vecteezy_instagram-logo-on-square-style-with-transparent-background_42127166.png" 
+                    class="-mt-[1px]" alt="">
+                </a>
+
+                <!-- <a class="w-[18%]" href="#">
+                    <img src="images/Header_Icons/vecteezy_youtube-logo-png-youtube-icon-transparent_18930572.png" 
+                    class="" alt=""> -->
+                
+
+                </a>
+                <a class="w-[20%] mt-1 h-[85%] transition-all duration-500 hover:scale-105 outline-teal-700 hover:outline-teal-600
+                hover:bg-teal-900 hover:bg-opacity-70 outline outline-2 p bg-teal-800 rounded-2xl" href="#">
+                    <img src="images/Header_Icons/vecteezy_linkedin-3d-illustration_13212104.png" 
+                    class="-mt-[2px]" alt="">
+                </a>
+
+                <a class="w-[20%] mt-1 h-[85%] transition-all duration-500 hover:scale-105 outline-teal-700 hover:outline-teal-600
+                hover:bg-teal-900 hover:bg-opacity-70 outline outline-2 p bg-teal-800 rounded-2xl" href="#">
+                    <img src="images/Header_Icons/vecteezy_twitter-logo-png-twitter-icon-transparent-free-png_18930745.png" 
+                    class="-mt-[2px]" alt="">
+                
+
+                </a>
+
+            </div>
+        </div>
+        <!-- row 2 -->
+        <nav class="hidden mt-[6px]  lg:mt-[3px] md:flex flex-row  justify-center gap-x-9 lg:gap-x-5 xl:gap-x-0">
+            <div class="w-[7%]  lg:w-[6%]   h-2">
+                <img src="images/Header/vecteezy_a-robot-with-a-blue-eye-on-a-transparent-background_49719667.png"
+                 class="w-full  xl:-mt-5 transform xl:-translate-x-14  2xl:-translate-y-1" alt="">
+            </div>
+
+            <div class="w-[78%] lg:w-[62%] xl:w-[53%] transform translate-y-1 xl:-mt-3 pb-1 border-b-4 rounded-2xl border-b-teal-700 md:flex flex-row justify-center gap-x-[5%] 
+            lg:text-lg xl:text-xl pt-0
+             font-serif font-medium tracking-tighter  text-blue-50">
+                <a id="home" class="nav-item p-1 rounded-lg border-teal-600  transition-all
+                 hover:text-whiteGlowing hover:glow duration-300" href="#home">Home</a>
+                <a class="nav-item p-1 rounded-lg border-teal-600  transition-all
+                hover:text-whiteGlowing hover:glow duration-300" href="#aboutMe">About Me</a>
+                <a class="nav-item p-1 rounded-lg border-teal-600  transition-all
+                 hover:text-whiteGlowing hover:glow duration-300" href="#">Projects</a>
+                <a class="nav-item p-1 rounded-lg border-teal-600  transition-all
+                 hover:text-whiteGlowing hover:glow duration-300" href="#">Testimonials</a>
+                <a class="nav-item p-1 rounded-lg border-teal-600  transition-all
+                 hover:text-whiteGlowing hover:glow duration-300" href="#">Contact Me</a>
+            </div>
+        </nav>
+
+
+
+
+    </header>
+    <!-- background Image -->
+    <div id="bg_image" class="mt-[150px] md:mt-0 border-teal-600 py-3 md:py-0  md:bg-teal-900 md:border-yellow-600 border-b-2 w-full absolute 
+      mx-auto rounded-b-4xl md:rounded-b-6xl  md:h-[680px]" >
+        <img src="images/background/vecteezy_ai-generated-creative-programmer-with-cityscape-projection_35665653.jpg"
+        class="bg-cover hidden md:block opacity-90 inset-0  w-full rounded-b-4xl md:rounded-b-6xl md:h-full" alt="">
+        <img src="images/background/vecteezy_a-young-man-stands-confidently-holding-a-laptop-against-a_52388844(1).png"
+        class="bg-cover     md:hidden opacity-70 inset-0  w-full rounded-b-4xl" alt="">
+    </div>
+
+    <!-- content inside bg_image -->
+
+    <article id="bg_image_contnet" class="absolute transform  flex justify-center -translate-x-[2000px] text-white  top-[87px] sm:top-[84px] md:top-32 ">
+
+        <p id="contentPar" class="mt-4 text-xs sm:text-sm md:text-base p-2 block md:p-3 border-b md:border-b-2  lg:border-b-4 font-serif lg:text-lg tracking-wider font-semibold bg-transparent backdrop-blur-xl 
+        rounded-3xl border-teal-700" style="text-align-last: center;">Explore the world of creative programming and innovative solutions.</p>
+
+    </article>
+
+    <div class="w-full  absolute px-10 sm:px-14 md:px-28 flex flex-row justify-between top-96">
+        <hr id="imageLeftHr" class="hidden md:block md:w-[20%]  bg-teal-950 border-2 border-teal-500 shadow-3xl shadow-teal-700">
+        <hr id="imageRightHr" class="hidden md:block md:w-[20%]  h-1 bg-teal-950 border-2 border-teal-500 shadow-3xl shadow-teal-700">
+    </div>
+
+    <!-- Go Down Button -->
+    <div class="mt-[655px]   xs:mt-[780px]   flex justify-center  w-full sm:hidden">
+        <a href="#aboutMe" id="goDownButton" class="flex flex-row py-2 w-[45%] justify-between items-center px-7 transition-all duration-500 
+        hover:scale-90 hover:border-teal-500 rounded-3xl cursor-pointer  border-b-2 border-t-2 border-teal-700">
+            <img src="images/goDownButton/vecteezy_hand-cursor-icon-clip-art_21996546.png"
+            class="w-7" alt="">
+            <h1 class="text-lg text-whiteGlowing glow">Go Down</h1>
+        </a>        
+    </div>
+
+    <!-- Client Statistics -->
+    <section id="Statistics" class="w-[88%] py-1 px-[2px] border-2 transform translate-y-[100%] transition-all duration-700
+     border-teal-950 shadow-md shadow-teal-950 rounded-xl flex  bg-gradient-to-tl from-teal-950 to-teal-900
+     justify-center items-center  mt-24 sm:mt-[900px] md:mt-[720px]">
+
+        <main class="w-[99%] flex flex-col items-center md:flex-row  justify-center py-4 px-5
+         text-white text-xl md:text-lg lg:text-xl
+         border border-teal-700 bg-Primary_color rounded-xl">
+            <!-- Happy Clients -->
+            <div class="staticCard w-11/12 sm:w-[74%] bg-gradient-to-bl from-teal-950 to-teal-900 shadow-sm shadow-teal-600
+            md:w-[25%] py-5 space-y-3 border border-teal-700 m-[10px] rounded-2xl flex flex-col justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[70px] text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
+                  </svg>
+                  <h1>Happy Clients</h1>
+                  <h1 class="text-4xl md:text-2xl lg:text-4xl">0</h1>                  
+            </div>
+            <!-- Projects -->
+            <div class="staticCard w-11/12 sm:w-[74%] bg-gradient-to-tr from-teal-950 to-teal-700 shadow-sm shadow-teal-800
+            md:w-[25%] py-5 space-y-3 border border-teal-700 m-[10px] rounded-2xl flex flex-col justify-center items-center">
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[70px] text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
+                  </svg>
+                  <h1>Projects</h1>
+                  <h1 class="text-4xl md:text-2xl lg:text-4xl">0</h1>
+                  
+
+            </div>
+            <!-- Awards Achieved -->
+            <div class="staticCard w-11/12 sm:w-[74%] md:w-[25%] bg-gradient-to-tr from-teal-950 to-teal-900 shadow-sm shadow-teal-600
+             py-5 space-y-3 border border-teal-700 m-[10px] rounded-2xl flex flex-col justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[70px] text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
+                  </svg>
+                  <h1>Awards Won</h1>
+                  <h1 class="text-4xl md:text-2xl lg:text-4xl">0</h1>
+                  
+            </div>
+            <!-- Co-Workers -->
+            <div class="staticCard w-11/12 sm:w-[74%] md:w-[25%] py-5 space-y-3 bg-gradient-to-tl from-teal-950 to-teal-700 
+            shadow-sm shadow-teal-950
+             border border-teal-700 m-[10px] rounded-2xl flex flex-col justify-center items-center ">
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[70px] text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                  </svg>
+                  <h1>Co-Workers</h1>
+                  <h1 class="text-4xl md:text-2xl lg:text-4xl">0</h1>
+                  
+
+            </div>
+
+
+
+        </main>
+
+
+
+    </section>
+
+    <!-- About Me -->
+    <section id="aboutMe" class=" flex border-t border-yellow-600 border-r-2 
+    border-l-2 flex-col items-center space-y-8 mt-5  w-[92%] py-8 
+    rounded-2xl shadow-sm shadow-yellow-600
+     bg-gradient-to-b  from-teal-800 to-Primary_color">
+     <!-- About Me Summary -->
+     <section class="flex flex-col lg:flex-row items-center justify-center  lg:gap-x-24 xl:gap-x-50  ">
+
+        <div class="block -mt-3 sm:-mt-0 w-[28%] sm:w-[26%] md:w-[22%] lg:w-[17%] xl:w-[20%]">
+            <img src="images/about_me_section/vecteezy_clouds-that-are-about-to-become-rain_46330200.png"
+            class=" w-full " alt="">
+        </div>
+
+         <div id="about" class="border-r-4  rounded-3xl border-yellow-700 p-1 sm:px-3 md:px-5 sm:py-3 md:py-7 
+         transition-all duration-1000  transform translate-x-[100%]
+          w-[95%]  md:w-[80%] lg:w-[53%]  xl:w-[44%]  flex flex-col items-center space-y-3">
+             <h1 class="text-whiteGlowing glow font-serif tracking-tight text-3xl font-medium">About Me</h1>
+             <h2 class="text-lg tracking-tighter text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolorum repellat beatae dolores perspiciatis, accusamus dicta architecto, exercitationem excepturi odio, ipsam quaerat 
+                 quisquam neque aliquid minus quae necessitatibus eligendi consequatur.
+             </h2>
+         </div>
+     </section>
+        <main id="about_script" class="w-[79%] md:w-[92%] xl:w-[79%] transition-all duration-1000 
+        bg-gradient-to-tl from-yellow-950 to-teal-700
+         transform -translate-x-[100%] flex flex-col border-teal-600 border-4  border-r-0
+         border-t-0 -mt-4 shadow-lg shadow-teal-700 px-4 rounded-3xl py-0  md:py-16 md:flex-row
+          items-center md:justify-between">
+            <!-- col 1 -->
+            <div class="w-11/12 md:w-[50%] xl:w-[42%] p-1 mt-3 md:mt-0">
+                <div class="p-4 md:p-2 lg:p-2 border-4 md:-mt-4 lg:-mt-1 xl:-mt-0 border-teal-800 shadow-inner shadow-teal-200 rounded-xl flex justify-center items-center">
+                    <img src="images/about_me_section/man-men-people-face-b6fec29dee437badf5a674c463a639dc.jpg"
+                    class="w-[97%] rounded-lg" alt="">
+                    
+                </div>
+            </div>
+            <!-- col 2 -->
+            <article class="w-[97%] md:w-[60%] lg:w-[68%] xl:w-[73%] 
+            mt-6 md:-mt-6 lg:-mt-10 xl:-mt-14 h-72 md:h-60  flex flex-col">
+                <div class="w-full md:w-[85%] bg-Primary_color bg-opacity-80 rounded-2xl lg:text-xl font-serif font-medium
+                 mx-auto flex-col  px-5 text-white py-4 space-y-3">
+                    <!-- Name -->
+                    <div class="flex flex-row justify-between">
+                        <h1>Name : </h1>
+                        <h1> James Cornell</h1>
+                    </div>
+                    <hr class="h-1 bg-white">
+                    <!-- Education -->
+                    <div class="flex flex-row justify-between">
+                        <h1>Education :</h1>
+                        <h2>Lorem University</h2>
+                    </div>
+                    <hr class="h-1 bg-white">
+                    <!-- Email -->
+                    <div class="flex flex-row justify-between">
+                        <h1>Email : </h1>
+                        <h2>Example@example.com</h2>
+                    </div>
+                    <hr class="h-1 bg-white">
+                    <!-- Phone -->
+                    <div class="flex flex-row justify-between">
+                        <h1>Phone</h1>
+                        <h2>555-555-555</h2>
+                    </div>
+                    <hr class="h-1 bg-white">
+                    <!-- Address -->
+                    <div class="flex flex-row justify-between">
+                        <h1>Address : </h1>
+                        <h2>Iceland, Selfoss</h2>
+                    </div>
+                    <hr class="h-1 bg-white">
+                </div>
+            </article>
+        </main>
+    </section>
+
+
+    <!-- Skills -->
+     <section id="skills" class="w-[87%]  md:bg-gradient-to-br from-Primary_color to-teal-950
+       space-y-14 md:space-y-0  md:border-r md:border-b border-yellow-500 
+      py-6  xl:px-0 rounded-2xl flex 
+      flex-col items-center md:gap-x-6 md:flex-row justify-center mt-1 md:mt-3 transition-all duration-1000 ">
+         
+        <div class="w-7/12 sm:w-[40%] md:w-2/4 lg:w-[20%]">
+            <img src="images/Skills/vecteezy_magnificent-wooden-chess-queen-piece_53581173.png"
+            class="w-full" alt="">
+        </div>  
+
+        <main class=" md:border p-3 md:mr-3 xl:mr-0 shadow-inner shadow-Primary_color 
+          border-teal-90 rounded-xl flex justify-center w-[120%] md:w-[70%] border-yellow-600
+         md:bg-teal-950">
+            <div  class=" w-full p-3  sm:p-8 md:border border-yellow-600  shadow-inner md:shadow-teal-950
+                bg-gradient-to-l from-Primary_color to text-teal-950
+               rounded-2xl flex justify-center items-center ">
+    
+                 <div class="container  border-b md:border-r-2  border-yellow-600 bg-gradient-to-tl from-Primary_color to-teal-950
+                 rounded-2xl  flex flex-col space-y-9 items-center overflow-hidden whitespace-nowrap py-4 sm:px-2">
+                         <!-- Row 1 -->
+                         <div id="theSkills" class="flex flex-row md:gap-x-5  xl:w-full xl:gap-x-3 
+                           text-sm sm:text-base md:text-lg font-Dana-Bold text-yellow-50">
+                             <div class="w-[10%] flex justify-center items-center  px-3 py-3 lg:p-2 mx-2 rounded-xl bg-slate-800 "><h1>Python</h1></div>
+                             <div class=" w-[10%] flex justify-center items-center px-3 py-3 lg:p-2 mx-2 rounded-xl bg-slate-800"><h1>C++</h1></div>
+                             <div class=" w-[10%] flex justify-center items-center px-3 py-3 lg:p-2 mx-2 rounded-xl bg-slate-800"><h1>Ruby</h1></div>
+                             <div class=" w-[10%] flex justify-center items-center px-3 py-3 lg:p-2 mx-2 rounded-xl bg-slate-800"><h1>Linux</h1></div>
+                             <div class=" w-[10%] flex justify-center items-center px-3 py-3 lg:p-2 mx-2 rounded-xl bg-slate-800"><h1>Django</h1></div>
+                             <div class="w-[14%] flex justify-center items-center py-2 px-7 lg:px-4 mx-2 rounded-xl bg-slate-800"><h1>JavaScript</h1></div>
+                             <div class="w-[10%] flex justify-center items-center px-3 py-3 lg:p-2 mx-2 rounded-xl bg-slate-800"><h1>Vue Js</h1></div>
+                         </div>
+                         <!-- row 2 -->
+                          <div id="theSkills2" class=" hidden lg:flex flex-row-reverse gap-x-4 xl:gap-x-8  w-full 
+                          text-sm sm:text-base md:text-lg font-Dana-Bold text-yellow-50 "> 
+                                <!-- Pyhton -->
+                                <img src="images/Skills/vecteezy_python-3d-icon-transparent-background_48332163.png"
+                                class="lg:w-14 xl:w-16 p-2 xl:p-3 rounded-full bg-Primary_color border-2 border-teal-900" alt="">
+                                <!-- C++ -->
+                                <img src="images/Skills/icons8-c++-48.png"
+                                class="lg:w-14 xl:w-16 p-2 xl:p-3 rounded-full bg-Primary_color border-2 border-teal-900" alt="">
+                                <!-- Ruby -->
+                                <img src="images/Skills/vecteezy_diamond-strass_1198375.png"
+                                class="lg:w-14 xl:w-16 p-2 xl:p-3 rounded-full bg-Primary_color border-2 border-teal-900" alt="">
+                                <!-- Linux -->
+                                <img src="images/Skills/vecteezy_linux-os-logo-top-operating-system-signs_16460767.png"
+                                class="lg:w-14 xl:w-16 p-2 xl:p-3 rounded-full bg-Primary_color border-2 border-teal-900" alt="">
+                                <!--django  -->
+                                <img src="images/Skills/vecteezy_free-logo-django_53066793.png"
+                                class="lg:w-14 xl:w-16 p-2 xl:p-3 rounded-full bg-Primary_color border-2 border-teal-900" alt="">
+                                <!-- javascript -->
+                                <img src="images/Skills/vecteezy_javascript-logo-png-javascript-icon-transparent-png_27127560.png"
+                                class="lg:w-14 xl:w-16 p-2 xl:p-3 rounded-full bg-Primary_color border-2 border-teal-900" alt="">
+                                <!-- vuejs -->
+                                <img src="images/Skills/vecteezy_abstract-alphabet-letter-with-paper-cut-style_24994884.png"
+                                class="lg:w-14 xl:w-16 p-2 xl:p-3 bg-Primary_color border-2 border-teal-900 rounded-full" alt="">
+                          </div>
+             
+                 </div>
+             </div>
+        </main>
+     </section>
+
+     
+     
+
+     <section class="flex flex-row-reverse border-t-2 border-teal-700
+     mt-6  transform translate-y-3 p-4 border-l-transparent border-r-transparent py-2 
+     rounded-xl   bg-Primary_color shadow-inner shadow-teal-800 
+     w-[74%] lg:w-[50%]  border-b-4   border-l-teal-800">
+        <main class=" flex flex-row-reverse items-center w-[99%] justify-center sm:gap-x-16 md:gap-x-28 lg:gap-x-32 sm:pr-24
+        rounded-xl
+        px-5 sm:px-10 lg:px-0 py-2  p-1 bg-gradient-to-r border-b-2 border-r-2 pb-4 border-yellow-500 from-teal-950 to-Primary_color">
+            <div class="sm:w-[30%] md:w-[15%] lg:w-[12%] hidden sm:block">
+                <img src="images/Projects/vecteezy_white-clipboard-task-management-todo-check-list-efficient_8879446.png"
+                class="w-full" alt="">
+            </div>
+    
+             <div class="flex bg-gradient-to-l from-emerald-900 to-Primary_color w-[97%] sm:w-11/12  md:w-[50%] 
+                py-6 sm:px-2 rounded-3xl border border-yellow-600
+             flex-col items-center space-y-2 md:space-y-2 xl:space-y-3">
+        
+                <h1 id="topProjectsTitle"  class=" transition-all duration-[3s] m
+                text-whiteGlowing glow text-lg  md:text-xl xl:text-2xl 
+                tracking-wider font-serif font-medium transform translate-y-12">Top Projects</h1>
+                <div class="underTitle w-11/12 h-[1px] -mt-[1px] bg-yellow-600 transition-all duration-[2s]">
+                    
+                </div>
+        
+             </div>
+        </main>
+
+     </section>
+
+    <!-- Projects -->
+    <section id="projects" class="flex bg-gradient-to-t from-teal-950 to-Primary_color w-11/12  py-6 px-3 rounded-xl
+      shadow-teal-700 border-b rounded-b-4xl border-yellow-600
+     flex-col items-center space-y-12 mt-5 ">
+
+        
+        <!-- Row 1 -->
+        <main class="w-[88%]">
+            <!-- Parent div -->
+            <div class="flex flex-col-reverse md:flex-row items-center   md:justify-center md:gap-x-[8%] space-y-10 md:space-y-0 ">
+                <!-- Project 1 -->
+                <div id="projectOne" class="card w-11/12 mt-8 md:mt-0 md:w-[60%] lg:w-[44%] group hover:bg-opacity-40 hover:bg-teal-700 hover:scale-105 shadow-xl shadow-teal-700
+                 hover:cursor-help transition-all duration-500  py-2 px-2 md:px-5 lg:px-2 flex flex-col 
+                 items-center bg-teal-700 bg-opacity-15 space-y-2 hover:shadow-inner hover:shadow-teal-950
+                 border border-yellow-600 rounded-2xl rounded-r-6xl ">
+                    <img src="images/Projects/vecteezy_laptop-mockup-with-a-coding-theme-perfect-for-ware_48635474(1).jpg"
+                    class=" pr-7 rounded-6xl rounded-b-3xl rounded-l-3xl" alt="">
+
+                    <h1 class="text-2xl md:text-lg lg:text-xl xl:text-2xl text-whiteGlowing glow py-4 px-8 border-l-4 rounded-3xl border-b-4 border-teal-500">Project X</h1>
+                    <hr class="w-[80%] h-1  transform translate-y-4">
+                    <h2 class="px-7 pl-9 md:pl-0 md:px-9 py-7 md:text-base lg:text-lg text-teal-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit quod, eius ipsum quam sapiente distinctio et corrupti 
+                        quos, labore deserunt magnam voluptatibus repellendus. Id dolorum ipsa facere exercitationem consectetur amet!
+                    </h2>
+                  
+
+                </div>
+                <!-- Project 2 -->
+                <div id="projectTwo" class=" w-11/12  md:w-[60%] lg:w-[44%] group hover:bg-opacity-40 hover:bg-teal-700 
+                hover:scale-[1] shadow-xl shadow-teal-700
+                 hover:cursor-help transition-all duration-500  py-2 px-2 md:px-5 xl:px-2 flex flex-col
+                 items-center bg-teal-700 bg-opacity-15 space-y-2 hover:shadow-inner hover:shadow-teal-950
+                 border-2 border-yellow-700 rounded-2xl rounded-t-6xl ">
+                    <img src="images/Projects/vecteezy_laptop-mockup-with-a-coding-theme-perfect-for-ware_48635474(1).jpg"
+                    class=" pr-7 rounded-t-6xl rounded-b-3xl rounded-r-3xl" alt="">
+
+                    <h1 class="text-2xl md:text-lg lg:text-xl xl:text-2xl text-whiteGlowing glow py-4 px-8  rounded-3xl border-b-4 border-teal-500">Project X</h1>
+                    <hr class="w-[80%] h-1  transform translate-y-4">
+                    <h2 class="px-3 md:px-2 xl:px-10 py-7 text-lg md:text-base lg:text-lg text-teal-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit quod, eius ipsum quam sapiente distinctio et corrupti 
+                        quos, labore deserunt magnam voluptatibus repellendus. Id dolorum ipsa facere exercitationem consectetur amet!
+                    </h2>
+                  
+
+                </div>
+
+            </div>
+
+
+        </main>
+
+        <!-- Row 2 -->
+        <main class="w-[88%] flex justify-center">
+            <!-- Project 3 -->
+            <div id="projectThree" class="card flex  flex-col items-center  space-y-5 md:space-y-0 hover:cursor-help
+             md:flex-row justify-between py-9 px-6 md:px-2 lg:px-6 border-2 rounded-t-6xl md:rounded-t-none rounded-3xl gap-x-3 bg-teal-700 bg-opacity-20
+            transition-all duration-500 border-yellow-600 hover:bg-opacity-50 hover:bg-teal-700 hover:scale-105">
+                
+                <img src="images/Projects/vecteezy_laptop-mockup-with-a-coding-theme-perfect-for-ware_48635474(1).jpg"
+                class="w-11/12  md:w-1/2 lg:w-[43%] xl:w-[32%] rounded-3xl rounded-t-6xl md:rounded-t-3xl" alt="">
+                <div class="flex flex-col space-y-2 md:w-[46%] xl:w-[84%]">
+                    <h1 class="text-2xl md:text-lg lg:text-xl xl:text-2xl text-whiteGlowing glow py-4 w-auto  lg:w-auto text-center  border-r-2 rounded-3xl border-l-2 border-teal-500">Project X</h1>
+                    <hr class="w-[87%] transform translate-y-2">
+                    <h2 class=" px-3 md:px-1 lg:px-14 py-7 text-lg md:text-base lg:text-lg text-teal-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit quod, eius ipsum quam sapiente distinctio et corrupti 
+                        quos, labore deserunt magnam voluptatibus repellendus. Id dolorum ipsa facere exercitationem consectetur amet!
+                    </h2>
+                </div>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+
+    <!-- Testimonials Section -->
+<section class="flex flex-col items-center space-y-8 mt-5 w-[98%] lg:w-[90%]">
+    <h1 class="text-whiteGlowing glow text-3xl tracking-wider font-serif font-medium">Testimonials</h1>
+    <main class=" flex flex-row-reverse w-full justify-between  border-r-4 border-r-yellow-500 rounded-4xl shadow-inner  shadow-yellow-600
+    items-center p-7 bg-gradient-to-tr from-teal-800 to-Primary_color md:bg-gradient-to-tr ">
+
+        <div class="hidden md:block w-[22%] ml-[250px] transform -translate-x-40  -mt-4">
+            <img src="images/Testimonials/vecteezy_man-give-star-rating-to-service-excellent-on-mobile-phone_27244725.png"
+            class="w-full" alt="">
+        </div>
+
+        <div class="testimonial-slider w-[340px] sm:w-[54%] overflow-hidden">
+            <div class="testimonial-wrapper flex transition-transform duration-500">
+                <div class="testimonial-item flex flex-col items-center py-4 px-10 hover:scale-105 transition-all duration-500
+                 border-l-4 border-t-4 rounded-6xl hover:border-2 hover:shadow-inner hover:shadow-teal-900 border-teal-900">
+                    <img src="images/Testimonials/vecteezy_business-man-smiling_27121654.jpg"
+                    class="w-1/2 rounded-full" alt="">
+                    <p class="text-base sm:text-lg text-white text-center mt-5">"James is an exceptional developer who consistently delivers high-quality work on time. His attention to detail is unmatched!"</p>
+                    <h3 class="text-lg sm:text-xl font-bold text-teal-500 mt-4">- Tom HepBurn</h3>
+                </div>
+                <div class="testimonial-item2 flex  flex-col items-center py-4 px-10 hover:scale-105 transition-all duration-500
+                border-r-4 border-t-4 rounded-6xl hover:border-2 hover:shadow-inner hover:shadow-teal-700 border-teal-700">
+                    <img src="images/Testimonials/vecteezy_emotional-dynamic-pose-30-year-old-woman-ai-generative_26893225(1).jpg"
+                    class="w-1/2 rounded-full" alt="">
+                    <p class="text-base sm:text-lg text-white text-center mt-5">"Working with James was a pleasure. He brought our ideas to life and exceeded our expectations!"</p>
+                    <h3 class="text-lg sm:text-xl font-bold text-teal-500 mt-4">- Meryl Bogart</h3>
+                </div>
+                <div class="testimonial-item3 flex flex-col items-center py-4 px-14 hover:scale-105 transition-all duration-500
+                 border-r-4 border-t-4 border-l-4 rounded-6xl hover:border-2 hover:shadow-inner hover:shadow-teal-500 border-teal-500">
+                    <img src="images/Testimonials/vecteezy_emotional-dynamic-pose-30-year-old-woman-ai-generative_26893445.jpg"
+                    class="w-1/2 rounded-full" alt="">
+                    <p class="text-base sm:text-lg text-white text-center mt-5">"James's skills in programming and design are impressive. I highly recommend him for any project!"</p>
+                    <h3 class="text-lg sm:text-xl font-bold text-teal-500 mt-4">- Martha Kane</h3>
+                </div>
+            </div>
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between mt-4">
+                <button id="prev" class="bg-teal-500 opacity-0 text-white px-4 py-2 rounded-lg">Previous</button>
+                <button id="next" class="bg-teal-500 opacity-0 text-white px-4 py-2 rounded-lg">Next</button>
+            </div>
+            <!-- Dots Navigation -->
+            <div class="flex justify-center space-x-2 mt-4" id="dots-container">
+                <!-- Dots will be dynamically generated here -->
+            </div>
+        </div>
+    </main>
+</section>
+
+
+<!-- Contact_Us All -->
+<article class="w-[88%] relative mt-5 space-y-7 lg:space-y-14  py-7 md:px-12 border-4 border-t shadow-inner shadow-yellow-500 rounded-3xl border-yellow-600 items-center  flex flex-col 
+bg-gradient-to-t md:bg-gradient-to-l from-teal-900 to-teal-950">
+    <!-- title -->
+    <section class="flex flex-row transform translate-x-24 md:translate-x-28 md:-translate-y-8 -mt-5 justify-between md:justify-normal">
+        <div class="flex w-[5%] md:w-[20%]  mr-80 md:mr-56 mt-12
+        flex-col  py-3 px-0 items-center space-y-2 border-l-4 border-b-4 rounded-b-lg  border-teal-600 rounded-6xl">
+            <h1 class=" w-[500%] md:w-auto text-xl lg:text-2xl italic tracking-tight font-medium text-white transform
+            translate-x-40 sm:translate-x-44 sm2:translate-x-52 md:translate-x-32 lg:translate-x-36">Contact Me</h1>
+            <h2 class="text-teal-100 text-lg transform translate-x-48 sm:translate-x-60 sm2:translate-x-72
+             md:translate-x-[340px] madThree:translate-x-[360px] mdFour:translate-x-[400px]  md2:translate-x-[420px] w-[1610%] md:w-[660%]">Ask Me Any Question You Like🤔</h2>
+        </div>
+        <div class="w-[5%] md:w-[20%] border-r-4 border-t-4 py-3 mt-10 rounded-6xl rounded-t-lg  mr-32 transform -translate-x-16 border-teal-700"></div>
+    </section>
+    <!-- hr between-->
+    <div class="contactHr hidden xl:block w-[10%] h-[2px]  bg-teal-300 absolute left-1 top-[84px]"></div>
+    <div class="contactHr2 w-[10%] hidden xl:block h-[2px]  bg-teal-400 absolute right-1 top-28"></div>
+    <!-- Contents -->
+    <div class="flex flex-col items-center md:flex-row md:justify-between   space-y-3 md:space-y-0">
+        <div class="w-[44%] sm:w-[34%]   flex justify-center items-center">
+                <img src="images/contact us/vecteezy_ai-generated-cartoon-illustration-of-a-hooded-robot-head-and_37912656.png"
+                class="w-3/4" alt="">
+        </div>
+    
+        <!-- contact us -->
+         <section class="w-[90%] md:w-[60%] rounded-2xl p-0 shadow-lg  shadow-teal-600 flex justify-center  ">
+           
+            <!-- first layer -->
+            <div class=" p-3 border-2 rounded-2xl border-teal-700 shadow-inner shadow-teal-600 w-full">
+                <!-- second layer -->
+                <div class="p-3 border-2 rounded-2xl border-teal-700 w-full shadow-inner shadow-teal-700">
+                    <form class="  flex flex-col border border-teal-700 rounded-lg p-3 xl:p-5 text-whiteGlowing glow ">
+                        <!-- row 1 -->
+                        <div class="flex flex-col lg:flex-row lg:p-3 lg:gap-x-3 lg:justify-between space-y-3 lg:space-y-0">
+                            <!-- name -->
+                            <div class="flex flex-col space-y-2">
+                                <h1 class="text-lg lg:text-base xl:text-lg">Name</h1>
+                                <input id="name" placeholder="Required" class="py-1 px-3 rounded-2xl text-black lg:w-11/12 xl:w-auto" type="text" required>
+                            </div>
+                            <!-- lastName -->
+                            <div class="flex flex-col space-y-2">
+                                <h1  class="text-lg lg:text-base xl:text-sm">Last_Name</h1>
+                                <input id="lastName" placeholder="Optional" class="py-1 px-3 rounded-2xl text-black lg:w-11/12 xl:w-auto" type="text" name="" id="">
+                            </div>
+                        </div>
+                        <!-- Row2 -->
+                        <div class="flex w-full p-1 flex-col mt-1 lg:mt-0 lg:items-center space-y-2 ">
+                            <h1  class="text-lg lg:text-base xl:text-sm">Email</h1>
+                            <input id="email" class="py-1 px-4 rounded-2xl w-full  lg:w-2/4 text-black" placeholder="Optional" type="text">
+                        </div>
+                        <!-- row 3 -->
+                        <div class=" flex flex-col space-y-2 mt-2 min-h-40 ">
+                            <h1 class="text-lg lg:text-base xl:text-sm">Enter Your Message</h1>
+                            <textarea class="text-black rounded-xl min-h-40"  id="textArea" name="" id="">
+
+                            </textarea>
+                            <button class="w-[60%] mx-auto px-8 transition-all duration-500 hover:scale-95 hover:bg-yellow-700
+                              py-2 bg-yellow-600 text-white rounded-lg">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </section>
+    </div>
+
+</article>
+
+
+
+<footer class="py-4 md:px-6 flex justify-center lg:px-20 xl:px-28 shadow-inner shadow-teal-700 w-full mt-7 border-t-4
+ border-t-teal-700" >
+    
+    <div class="flex flex-col md:flex-row font-sans space-y-5 md:space-y-0 w-11/12 sm:w-[80%] md:w-full md:px-4 lg:px-0
+    items-center md:justify-between text-base sm:text-lg md:text-base lg:text-lg text-whiteGlowing glow lg:border-b-0
+    border-b-4 border-b-teal-600 py-4 rounded-3xl">
+        <h1>James T. Cornell</h1>
+        <hr class="w-[80%] mx-auto h-1 bg-teal-200 rounded-3xl  md:hidden">
+        <h1>Award-Winning Developer at Tech Innovations Inc.</h1>
+        <hr class="w-[80%] mx-auto h-1 bg-teal-200 rounded-3xl md:hidden">
+        <h1>Senior Software Engineer</h1>
+    </div>
+
+</footer>
+
+<script src="main.js "></script>
+</body>
+</html>
