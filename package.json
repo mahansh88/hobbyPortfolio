@@ -1,12 +1,13 @@
 {
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+    "dev": "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.16"
   },
   "dependencies": {
     "@jridgewell/gen-mapping": "^0.3.6",
-    "latest": "^0.2.0"
+    "latest": "^0.2.0",
+    "tailwind-scrollbar": "^3.1.0"
   }
 }

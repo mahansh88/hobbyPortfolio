@@ -535,3 +535,34 @@ window.addEventListener('resize', function(){
 // 2222222222222222222222222222222222222222222
 let html = $.querySelector('html');
 html.style.scrollBehavior = 'smooth';
+
+
+window.addEventListener('scroll', (event)=>{
+    console.log(event)
+})
+
+$.body.classList.add('scrollbar-custom')
+const style = $.createElement('style');
+style.textContent = `
+    /* For WebKit browsers (Chrome, Safari) */
+    ::-webkit-scrollbar {
+        width: 8px; /* Width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #004d4d; /* Track color (dark teal) */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #007f7f; /* Thumb color (lighter dark teal) */
+        border-radius: 10px; /* Rounded corners */
+    }
+
+    /* For Firefox */
+    * {
+        scrollbar-width: thin; /* Width of the scrollbar */
+        scrollbar-color: #007f7f #004d4d; /* Thumb color and track color */
+    }
+
+`;
+$.head.appendChild(style)

@@ -90,6 +90,7 @@ module.exports = {
       addVariant('child', '& > *');
       addVariant('child-hover', '& > *:hover');
     },
+    require('tailwind-scrollbar'),
     // tailwindHamburgers
   ]
 };

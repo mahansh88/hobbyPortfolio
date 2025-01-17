@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scrollbar-thin {
+@apply scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-200;
+}
+
+.scrollbar-custom {
+scrollbar-width: thin; /* For Firefox */
+scrollbar-color: #3b82f6 #e5e7eb; /* thumb color, track color */
+}
+
+/* For Webkit browsers */
+.scrollbar-custom::-webkit-scrollbar {
+width: 8px; /* Width of the scrollbar */
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+background: #e5e7eb; /* Track color */
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+background-color: #3b82f6; /* Thumb color */
+border-radius: 10px; /* Rounded corners */
+}
