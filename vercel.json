@@ -1,11 +1,11 @@
 {
 "routes": [
     {
-    "src": "/public/Fonts/(.*)",
+    "src": "/public/main.js",
     "headers": {
         "Access-Control-Allow-Origin": "*"
         },
-    "dest": "/public"
+    "dest": "/public/main.js/$1"
     }
  ]
 }
